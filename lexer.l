@@ -29,6 +29,7 @@ type    "int"|"string"
 
 
 "create table"              { yylval = make_createtabletoken (yytext); return CREATETABLE; }
+"drop table"                { yylval = make_droptabletoken (yytext); return DROPTABLE; }
 {type}                      { yylval = make_typetoken (yytext); return TYPE; }
 {ID}                        { yylval = make_idtoken (yytext); return ID; }
 {ws}                        /* eat up whitespaces */

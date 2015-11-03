@@ -17,9 +17,9 @@ execute_stmt (struct stmt_t* statement)
         execute_createtable_stmt (statement->u.ct_stmt);
     }
     else
-        if (statement->kind == ins_kind)
+        if (statement->kind == dts_kind)
         {
-        
+            execute_droptable_stmt (statement->u.dts_stmt);
         }
 }
 
@@ -49,6 +49,14 @@ execute_createtable_stmt (struct createtable_stmt_t* cts)
 }
 
 
+void
+execute_droptable_stmt (struct droptable_stmt_t* dts)
+{
+    /* Delete the dir db_files/db_name */
+    char command[200] = "rm -r db_files/";
+    strcat (command, dts->table_name);
+    system (command);
+}
 
 
 

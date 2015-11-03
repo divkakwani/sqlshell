@@ -34,13 +34,17 @@ struct create_table_token_t
     char* lexeme;
 };
 
+struct drop_table_token_t
+{
+    char* lexeme;
+};
 
 
 /* Ctors */
 struct id_token_t* make_idtoken (const char* lexeme);
 struct type_token_t* make_typetoken (const char* lexeme);
 struct create_table_token_t* make_createtabletoken (const char* lexeme);
-
+struct drop_table_token_t* make_droptabletoken (const char* lexeme);
 
 
 #endif // TOKENTYPES_H

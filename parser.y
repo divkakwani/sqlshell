@@ -8,6 +8,7 @@
 
 #include "tokentypes.h"
 #include "astnodetypes.h"
+#include "executenode.h"
 
 #define YYSTYPE void*
 
@@ -22,7 +23,7 @@ struct stmt_t* statement;
 
 %}
 
-%token ID CREATETABLE TYPE
+%token ID CREATETABLE TYPE DROPTABLE
 
 %%
 
@@ -42,7 +43,15 @@ stmt:               create-table-stmt
                         statement = malloc (sizeof (struct stmt_t));
                         statement->kind = cts_kind;
                         statement->u.ct_stmt = $1;
+                    }
+                |
+                    drop-table-stmt
+                    {
+                        statement = malloc (sizeof (struct stmt_t));
+                        statement->kind = dts_kind;
+                        statement->u.dts_stmt = $1;
                     };
+
 
 
 create-table-stmt:  CREATETABLE base-table-name fields 
@@ -78,6 +87,16 @@ field-name:         ID   { $$ = $1; };
 field-type:         TYPE { $$ = $1; };
 
 
+
+drop-table-stmt:    DROPTABLE base-table-name
+                    {
+                        struct droptable_stmt_t* dts = make_droptable_stmt (((struct id_token_t*)$2)->lexeme);
+                        $$ = dts;
+                    }
+
+
+
+
 %%
 
 
@@ -85,7 +104,7 @@ int
 main (void)
 {
     yyparse ();
-    printf ("%s\n", statement->u.ct_stmt->table_name);
+    execute_stmt (statement);
     return 0;
 }
 

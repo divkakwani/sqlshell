@@ -36,3 +36,12 @@ make_createtabletoken (const char* lexeme)
     return p;
 }
 
+
+struct drop_table_token_t* 
+make_droptabletoken (const char* lexeme)
+{
+    struct drop_table_token_t* p = malloc (sizeof (struct drop_table_token_t));
+    p->lexeme = strdup (lexeme);
+    return p;
+}
+
