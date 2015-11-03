@@ -5,7 +5,8 @@
 #include "tokentypes.h"
 
 
-struct id_token_t* make_idtoken (const char* lexeme)
+struct id_token_t*
+make_idtoken (const char* lexeme)
 {
     struct id_token_t* p = malloc (sizeof (struct id_token_t));
     p->lexeme = strdup (lexeme);
@@ -13,7 +14,8 @@ struct id_token_t* make_idtoken (const char* lexeme)
 }
 
 
-struct type_token_t* make_typetoken (const char* lexeme)
+struct type_token_t*
+make_typetoken (const char* lexeme)
 {
     struct type_token_t* p = malloc (sizeof (struct type_token_t));
 
@@ -26,7 +28,8 @@ struct type_token_t* make_typetoken (const char* lexeme)
     return p;
 }
 
-struct create_table_token_t* make_createtabletoken (const char* lexeme)
+struct create_table_token_t* 
+make_createtabletoken (const char* lexeme)
 {
     struct create_table_token_t* p = malloc (sizeof (struct create_table_token_t));
     p->lexeme = strdup (lexeme);
