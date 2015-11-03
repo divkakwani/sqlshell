@@ -1,3 +1,9 @@
+
+/*
+ *  This file is taken from the pintos project. See its license for more details.
+ */
+
+
 #ifndef __LIB_KERNEL_LIST_H
 #define __LIB_KERNEL_LIST_H
 

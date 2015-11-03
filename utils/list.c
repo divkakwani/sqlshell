@@ -1,4 +1,10 @@
 
+/*
+ *  This file is taken from the pintos project. See its license for more details.
+ */
+
+
+
 #include <assert.h>
 #include "list.h"
 
