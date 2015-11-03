@@ -1,0 +1,12 @@
+
+
+# Built files
+build/*
+
+# Database files
+db_files/*
+
+# Include Makefile in build dir
+!build/Makefile
+
+
