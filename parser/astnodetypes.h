@@ -6,8 +6,8 @@
 
 #include <stdio.h>
 
-#include "tokentypes.h"
-#include "utils/list.h"
+#include "../lexer/tokentypes.h"
+#include "../utils/list.h"
 
 
 /* Node types */

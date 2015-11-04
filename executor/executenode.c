@@ -5,8 +5,8 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
-#include "utils/list.h"
-#include "astnodetypes.h"
+#include "../utils/list.h"
+#include "../parser/astnodetypes.h"
 #include "executenode.h"
 
 void

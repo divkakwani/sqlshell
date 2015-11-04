@@ -4,11 +4,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "utils/list.h"
+#include "../utils/list.h"
 
-#include "tokentypes.h"
+#include "../lexer/tokentypes.h"
 #include "astnodetypes.h"
-#include "executenode.h"
+#include "../executor/executenode.h"
 
 #define YYSTYPE void*
 
