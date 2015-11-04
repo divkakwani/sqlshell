@@ -16,8 +16,12 @@
 extern int yylex ();
 
 
-/* Forward declarations */
-int yyerror (const char *s);
+int
+yyerror (const char *err_mesg) 
+{
+    fprintf (stderr, "Error encountered: %s\n", err_mesg);  
+}
+
 
 struct stmt_t* statement;
 
@@ -95,25 +99,7 @@ drop-table-stmt:    DROPTABLE base-table-name
                     }
 
 
-
-
 %%
-
-
-int
-main (void)
-{
-    yyparse ();
-    execute_stmt (statement);
-    return 0;
-}
-
-
-int
-yyerror (const char *err_mesg) 
-{
-    fprintf (stderr, "Error encountered: %s\n", err_mesg);  
-}
 
 
 

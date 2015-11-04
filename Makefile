@@ -5,7 +5,7 @@ all: sqlshell post-build
 sqlshell: parser.tab.o lex.yy.o
 	@echo compiling...
 	gcc -lfl utils/list.c lexer/tokentypes.c parser/astnodetypes.c executor/executenode.c \
-		     lexer/lex.yy.c parser/parser.tab.c -o sqlshell
+		     lexer/lex.yy.c parser/parser.tab.c main.c -o sqlshell
 
 parser.tab.o:
 	@echo generating parser.tab.c

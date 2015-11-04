@@ -5,6 +5,12 @@
 #include <stdbool.h>
 #include <string.h>
 
+#include "parser/parser.tab.h"
+#include "executor/executenode.h"
+
+extern FILE* yyin;
+extern struct stmt_t* statement;
+
 void runsqlcmd (char *cmd);
 inline void printprompt (void);
 
@@ -40,7 +46,9 @@ printprompt (void)
 }
 
 void
-runsqlcmd (char *cmd)
+runsqlcmd (char *cmdstr)
 {
-    system (cmd);
+    yyin = fmemopen (cmdstr, strlen (cmdstr), "r");
+    yyparse ();
+    execute_stmt (statement);
 }
