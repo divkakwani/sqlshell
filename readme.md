@@ -1,8 +1,20 @@
 # sqlshell
 
-sqlshell is a bare-bone database management system intended for usage where efficiency is not a concern.
+sqlshell is a bare-bones database management system intended for light-weight usage where efficiency is not a prime concern.
 
 ![sqlshell in action](https://raw.githubusercontent.com/divkakwani/sqlshell/master/snapshot.png)
+
+### Installation
+
+To build, run:
+```
+make
+```
+and to install, run:
+```
+make install
+```
+
 
 ### Internals
 
@@ -38,4 +50,4 @@ functioning is as follows:
                     that it would be further split in future.
                     <br> The execution engine is intentionally separated from the parser to make
                     the parser storage independent. With this architecture, the representation of
-                    databases can be changed by this only this component.
+                    databases can be changed by changing only this component.
